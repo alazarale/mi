@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+<style type="text/css" rel="stylesheet">
+    .comments{
+        background: #EAEAEB;
+        border-radius: 25px;
+        }
+}</style>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 detail" style="background:#EAEAEB;height:100%;">
+                <blockquote>
+                    <h3>{{ post.title }}</h3>
+                    <small>{{ post.created }}</small>
+                </blockquote>
+                <img src="{{ post.photo.url }}" class="img-responsive" style="margin: 0 auto;">
+                <p>{{ post.body|linebreaks }}</p>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-3 detail" id="sidebar">
+                <h3 class="recent-story">Recent stories</h3>
+                <br>
+                {% for single in posts %}
+                    <div class="row">
+                        <div class="col-sm-12 flip3d">
+                            <div class="front"><a href="{{ single.get_absolute_url }}"> <img src="{{ single.photo.url }}" class="img-responsive" style="max-height:200px;"/></a></div>
+                            <div class="back">
+                                <blockquote>
+                                    <h4 class="title-style"><a href="{{ single.get_absolute_url }}">{{ single.title }}</a></h4>
+                                    <small style="color:white;">{{ single.created }}</small>
+                                    <p>{{ single.body|slice:":60" }}<a href="{{ single.get_absolute_url }}" style="color:yellow;">...</a></p>
+                                </blockquote>
+                            </div>
+
+                        </div>
+                    </div>
+                <br>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+        <br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8  comments" id="comment">
+                <h2 style="text-align:center;">Comments</h2>
+                {% with comments.count as total_comment %}
+                    <h4 style="color:green;">{{ total_comment }} total number of comment{{ total_comment|pluralize}}.</h4>
+                {% endwith %}
+                 {% for comment in comments %}
+                 <div class="comment-detail">
+                     <blockquote>
+                        <h4>{{ comment.name }}</h4>
+                        <small>{{ comment.message }}</small>
+                    </blockquote>
+                 </div>
+              {% empty %}
+                   <p>There are no comments. Be the first to comment</p>
+              {% endfor %}
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="container">
+        <div class="row ">
+            <div class="col-sm-8 comments">
+               {% if new_form %}
+                <h2>Your comment has been added</h2>
+              {% else %}
+                <br>
+                <h2>Add a new comment</h2>
+                <form class="col-sm-7" action="." method="post">
+                    <div class="form-group">
+                    {{ comment_form|crispy }}
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-primary" value="Add comment">
+                    </div>
+                </form>
+              {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

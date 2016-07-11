@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<style type="text/css" rel="stylesheet">
+    .product-home{
+        background: #EAEAEB;
+        -webkit-overflow-scrolling: touch;
+
+    }
+    .product-home h3{
+        text-align: center;
+    }
+</style>
+
+    <div class="container">
+
+        <!-- main content area -->
+        <div class="main-container">
+            <!--products-->
+            <h1 class="header-title">Our products</h1>
+
+            <br>
+               <div class="row" id="products">
+                    {% for product in products %}
+                    <div class="col-sm-5 product-home">
+                        <img src="{{ product.photo.url }}" class="img-responsive" style="max-height:200; margin:0 auto;">
+                        <h3>{{ product.name }}</h3>
+                        <br><br>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <a href="{{ product.get_absolute_url }}" class="button col-sm-offset-2">See description</a>
+                                <br><br>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="col-sm-offset-3" style="color:green;">Price: {{ product.price }}birr</p>
+                            </div>
+                        </div>
+                        <br><br><br>
+                    </div>
+                   <br>
+                   <div class="col-sm-2"></div>
+                    <div class="clearfix visible-sm"></div>
+                    {% endfor %}
+                </div>
+            <br><br>
+            <a href="{% url 'agri:product' %}" class="button col-sm-offset-5">Other products</a>
+
+
+        </div>
+
+            <!--services-->
+
+            <div class="services">
+                <h1 class="header-title">Latest news from our blog</h1>
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                    {% for post in posts %}
+                        <div class="col-sm-4">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <img src="{{ post.photo.url }}" class="img-responsive" alt="{{ post.title }}" style="height:200px;">
+                                    <blockquote>
+                                        <h3>{{ post.title }}</h3>
+                                        <small>{{ post.created }}</small>
+                                    </blockquote>
+                                    <p>{{ post.body|slice:":255" }}...</p>
+                                    <h4><a href="{{ post.get_absolute_url }}#comment">{% with post.post_commented.count as total_comment%}{{ total_comment }} comment{{ total_comment|pluralize }} {% endwith %}</a></h4>
+                                    <br>
+                                    <a href="{{ post.get_absolute_url }}" class="button">Read more</a>
+                                    <br>
+                                    <br>
+                                    <br>
+                                </div>
+                                <div class="clearfix visible-xs"></div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+    </div>
+    <br>
+    <br>
+    <br>
+
+    <div class="container-fluid footer">
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <h2 class="col-sm-offset-5">Contact Us!</h2>
+                <br>
+                <form action="." method="post" style="color:green;">
+                    {% csrf_token %}
+                    {{ form_contact|crispy }}
+                    <input type="submit" class="btn btn-primary col-sm-offset-5" value="send">
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <br><br><br><br>
+                <div class="col-sm-offset-3">
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <img src="{% static 'images/phone.png' %}">
+                        </div>
+                        <div class="col-sm-4">
+                            <p>+251900000000</p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-sm-offset-3">
+                    <div class="row">
+                        <div class="col-sm-1">
+                        <img src="{% static 'images/location.png' %}">
+                        </div>
+                        <div class="col-sm-4">
+                            <strong>Arsi Asella, Ethiopia</strong><br>
+                            Kebele 10, inside Michael's<br>building
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+    </div>
+{% endblock %}k %}

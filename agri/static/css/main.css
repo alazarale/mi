@@ -1,0 +1,204 @@
+
+.head ul{
+    list-style-type: None;
+}
+
+.sl{
+    float: right;
+    padding: 1%;
+}
+
+.logo{
+    margin-left: 10%;
+    float: left;
+    font-size: 3em;
+    color: #ffffff;
+}
+
+.main-nav{
+    background: rgba(78,218,71,.4);
+}
+
+@media all and (min-width: 768px) {
+    .fixed-width {
+        width:100%;
+        margin-left: auto;
+        margin-right:auto;
+    }
+}
+
+@media all and (min-width: 992px) {
+    .fixed-width {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
+@media all and (min-width: 1200px) {
+    .fixed-width {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.nav a{
+    color: #fff;
+    font-size: 1.5em;
+}
+.nav a:hover{
+    background: rgba(255, 0, 0, .5);
+}
+
+.for-shadow{
+    -webkit-box-shadow: 20px 20px 5px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 20px 20px 5px rgba(0, 0, 0, .5);
+    box-shadow: 20px 20px 5px rgba(0, 0, 0, .5);
+}
+
+.products{
+    padding: 2em;
+}
+
+.header-title{
+    text-align: center;
+}
+
+a.button{
+    font-size: 1.3em;
+    padding: .5em 1em;
+    text-decoration: none;
+    background: #FFD204;
+    color: #fff;
+
+}
+
+a.button:hover{
+    font-size: 1.3em;
+    padding: .5em 1em;
+    text-decoration: none;
+    background: #FFBF2E;
+    color: #000;
+
+}
+
+.footer{
+    background: rgba(0,0,0,.9);
+    color: #fff;
+}
+
+.selected{
+    color: yellow;
+    background: rgba(225,0,0,.9);
+}
+
+.developer{
+    color: yellow;;
+}
+
+.footer-ground a:hover{
+    background:#D9EAFF;
+    color:black;
+}
+
+.block{
+    width:100%;
+    background: black;
+}
+
+.detail{
+    background:  rgba(53,203,18, .4);
+    overflow: auto;
+}
+.recent-story{
+    color: #fff;
+    padding-left: 50px;
+    padding-top: 5px;
+    background: -webkit-linear-gradient(#260CD1, #3354D1, #457DD1);
+    border-radius: 25px;
+
+}
+.comments{
+    background: #EAEAEB;
+    border-radius: 25px;
+}
+.comments h2{
+    color: #fff;
+    padding-left: 50px;
+    padding-top: 5px;
+    background: -webkit-linear-gradient(#260CD1, #3354D1, #457DD1);
+    border-radius: 25px;
+}
+.flip3d{
+    height:200px;
+    background:rgba(0,0,0,.5)
+}
+.flip3d > .front{
+     position: absolute;
+    -webkit-transform: perspective(600px) rotateY(0deg);
+    -moz-transform: perspective(600px) rotateY(0deg);
+    -ms-transform: perspective(600px) rotateY(0deg);
+    -o-transform: perspective(600px) rotateY(0deg);
+    transform: perspective(600px) rotateY(0deg);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: transform .5s linear 0s;
+    -moz-transition: transform .5s linear 0s;
+    -ms-transition: transform .5s linear 0s;
+    -o-transition: transform .5s linear 0s;
+    transition: transform .5s linear 0s;
+}
+.flip3d > .back{
+     position: absolute;
+    -webkit-transform: perspective(600px) rotateY(180deg);
+    -moz-transform: perspective(600px) rotateY(180deg);
+    -ms-transform: perspective(600px) rotateY(180deg);
+    -o-transform: perspective(600px) rotateY(180deg);
+    transform: perspective(600px) rotateY(180deg);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: transform .5s linear 0s;
+    -moz-transition: transform .5s linear 0s;
+    -ms-transition: transform .5s linear 0s;
+    -o-transition: transform .5s linear 0s;
+    transition: transform .5s linear 0s;
+}
+
+.flip3d:hover > .front{
+    transform: perspective( 600px ) rotateY(-180deg)
+}
+.flip3d:hover > .back{
+    transform: perspective( 600px ) rotateY(0deg)
+}
+.title-style{
+    color:yellow;
+    background:rgba(218,241,21,.5);
+    padding-left: 20px;
+}
+
+.each{
+    height:500px;
+    overflow:auto;
+}
+.each h3{
+    text-align: center;
+}
+.category{
+    background: rgba(53,203,18, .4);
+    height: 50%;
+    overflow:auto;
+    max-width:200px
+}
+.category h2{
+    color: #fff;
+    text-align: center;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background: -webkit-linear-gradient(#260CD1, #3354D1, #457DD1);
+    border-radius: 25px;
+}

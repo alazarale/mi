@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+{% block title %}Contact{% endblock %}
+{% block content %}
+<style type="text/css" rel="stylesheet">
+
+</style>
+    <div class="container">
+        <div class="map-responsive">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2354.8937375454784!2d39.13017369589922!3d7.980093998571132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNTgnNDguMyJOIDM5wrAwNyc1Mi41IkU!5e1!3m2!1sen!2suk!4v1468141937341" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <br><br><br>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1975.6015277484921!2d39.13212081563438!3d7.977953067173961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNTgnNDguMyJOIDM5wrAwNyc1Mi41IkU!5e0!3m2!1sen!2suk!4v1468143046628" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <br><br><br>
+        </div>
+    </div>
+  <div class="container-fluid footer">
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <h2 class="col-sm-offset-5">Contact Us!</h2>
+                <br>
+                <form action="." method="post" style="color:green;">
+                    {% csrf_token %}
+                    {{ form_contact|crispy }}
+                    <input type="submit" class="btn btn-primary col-sm-offset-5" value="send">
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <br><br><br><br>
+                <div class="col-sm-offset-3">
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <img src="{% static 'images/phone.png' %}">
+                        </div>
+                        <div class="col-sm-4">
+                            <p>+251900000000</p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-sm-offset-3">
+                    <div class="row">
+                        <div class="col-sm-1">
+                        <img src="{% static 'images/location.png' %}">
+                        </div>
+                        <div class="col-sm-4">
+                            <strong>Arsi Asella, Ethiopia</strong><br>
+                            Kebele 10, inside Michael's<br>building
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+{% endblock %}

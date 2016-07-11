@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %}Products{% endblock %}
+{% block content %}
+<style type="text/css" rel="stylesheet">
+    .each{
+        height:600px;
+        overflow:auto;
+    }
+    .each h3{
+        text-align: center;
+    }
+    .category{
+        background: rgba(53,203,18, .4);
+        height: 50%;
+        overflow:auto;
+        max-width:200px
+    }
+    .category h2{
+        color: #fff;
+        text-align: center;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        background: -webkit-linear-gradient(#260CD1, #3354D1, #457DD1);
+        border-radius: 25px;
+    }
+    .product-home{
+        background: #EAEAEB;
+        -webkit-overflow-scrolling: touch;
+        overflow: auto;
+
+    }
+
+
+</style>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-2 category">
+                <h2>Category</h2>
+                <ul>
+                    <li><a href="#">Category1</a></li>
+                    <li><a href="#">Category2</a></li>
+                    <li><a href="#">Category3</a></li>
+                    <li><a href="#">Category4</a></li>
+                    <li><a href="#">Category5</a></li>
+                    <li><a href="#">Category6</a></li>
+                    <li><a href="#">Category7</a></li>
+                    <li><a href="#">Category8</a></li>
+                    <li><a href="#">Category9</a></li>
+                    <li><a href="#">Category10</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-1"></div>
+            <div class="col-xs-9">
+                <div class="row" id="products  product-home">
+                    {% for product in products %}
+                    <div class="col-sm-6" style="height:400px;">
+                        <img src="{{ product.photo.url }}" class="img-responsive" style="max-height:200; margin:0 auto;">
+                        <h3 style="text-align:center">{{ product.name }}</h3>
+                        <br><br>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <a href="{{ product.get_absolute_url }}" class="button">See description</a>
+                                <br><br>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="col-sm-offset-3" style="color:green;">Price: {{ product.price }}birr</p>
+                            </div>
+                        </div>
+                        <br><br><br>
+                    </div>
+
+                    <div class="clearfix visible-sm"></div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

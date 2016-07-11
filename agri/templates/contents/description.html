@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}{{ product.name }}{% endblock %}
+{% block content %}
+<style type="text/css" rel="stylesheet">
+    .product-description{
+        background:  #EAEAEB;
+    }
+    .price-ground{
+         background: -webkit-linear-gradient(180deg, #465367, #767454);
+          border-radius: 5px;
+          width:100%;
+          text-align: center;
+
+    }
+
+</style>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-9 product-description">
+                <h3 style="text-align: center;">{{ product.name }}</h3>
+                <img src="{{ product.photo.url }}" class="img-responsive" style=" max-height: 400; margin: 0 auto;">
+                <p>{{ product.description }}</p>
+                <div class="price-ground">
+                    <h3 style="color: blue;">PRICE: <small style="color: green;">{{ product.price }}birr</small></h3>
+                </div>
+                <br><br>
+                 <h2 style="color:green;">Contact us:</h2>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-offset-4">
+                            <img src="{% static 'images/mail.png' %}"> : contact@us.com
+                        </div>
+                        <div class="col-sm-offset-4">
+                            <img src="{% static 'images/phone1.png' %}">: +251900000000
+                        </div>
+                        <h3 style="color:green;">or use google map</h3>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2354.8937375454784!2d39.13017369589922!3d7.980093998571132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNTgnNDguMyJOIDM5wrAwNyc1Mi41IkU!5e1!3m2!1sen!2suk!4v1468141937341" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <br><br><br>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2 category">
+                <h2>Category</h2>
+                <ul>
+                    <li><a href="#">Category1</a></li>
+                    <li><a href="#">Category2</a></li>
+                    <li><a href="#">Category3</a></li>
+                    <li><a href="#">Category4</a></li>
+                    <li><a href="#">Category5</a></li>
+                    <li><a href="#">Category6</a></li>
+                    <li><a href="#">Category7</a></li>
+                    <li><a href="#">Category8</a></li>
+                    <li><a href="#">Category9</a></li>
+                    <li><a href="#">Category10</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
